@@ -10,12 +10,11 @@ package com.mycompany.examenmaven;
  * @author ablancoabalde
  */
 public class Main extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Main
-     */
+ Logica logi = new Logica();
+    
     public Main() {
         initComponents();
+       
     }
 
     /**
@@ -29,36 +28,62 @@ public class Main extends javax.swing.JFrame {
 
         Etiqueta = new javax.swing.JLabel();
         Btn_Ver = new javax.swing.JButton();
+        eti_Temp = new javax.swing.JLabel();
+        eti_estado = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         Btn_Ver.setText("Ver");
+        Btn_Ver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_VerActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Etiqueta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Etiqueta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(215, 215, 215)
+                                .addComponent(Btn_Ver))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(eti_estado, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 235, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(165, 165, 165)
-                .addComponent(Btn_Ver)
-                .addContainerGap(177, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(eti_Temp, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(86, 86, 86)
+                .addGap(55, 55, 55)
                 .addComponent(Etiqueta, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
+                .addGap(18, 18, 18)
+                .addComponent(eti_Temp, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(eti_estado, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
                 .addComponent(Btn_Ver)
-                .addContainerGap(123, Short.MAX_VALUE))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Btn_VerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_VerActionPerformed
+        logi.Conectarse();
+    }//GEN-LAST:event_Btn_VerActionPerformed
 
     /**
      * @param args the command line arguments
@@ -97,6 +122,8 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btn_Ver;
-    private javax.swing.JLabel Etiqueta;
+    public static javax.swing.JLabel Etiqueta;
+    public static javax.swing.JLabel eti_Temp;
+    public static javax.swing.JLabel eti_estado;
     // End of variables declaration//GEN-END:variables
 }
